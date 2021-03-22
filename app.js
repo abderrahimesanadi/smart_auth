@@ -48,8 +48,8 @@ app.get('/api/article', (req, res) => {
         //}
 
     }).catch((error) => {
-
-        res.status(200).json({'status': 5});
+        console.log(error.data);
+        res.status(200).json({'status': error.data});
 
     })
 })
@@ -76,12 +76,10 @@ app.get('/api/tags', (req, res) => {
     })
 })
 
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
   })
   
-
-
 
 //module.exports = app;

@@ -1,0 +1,11 @@
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+    node-service: # The name of the service
+      container_name: smartauth_nodeContainer  # Container name
+      build: . # Location of our Dockerfile
+      volumes: # Volume binding
+        - '.:/usr/src/app' 
+      ports: 
+        - '3001:3001' # Port mapping
+      command: > 
+        bash -c "npm install && node app.js"
