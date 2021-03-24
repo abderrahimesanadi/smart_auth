@@ -55,7 +55,8 @@ router.post('/signup',(req,res)=> {
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8)),
             role: 'standard'
         };
-
+        
+        console.log(userApi);
 
         axios.post('http://localhost:8082/api/users', userApi)
             .then(res_http => {
@@ -67,10 +68,11 @@ router.post('/signup',(req,res)=> {
                 );
             })
             .catch(error => {
+                console.log(error);
                 res.status(200).json({'status':1});
             });
     } else {
-
+    
         res.status(200).json(
             {
                 'status': 3

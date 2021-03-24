@@ -6,6 +6,6 @@ services: # Here we define our service(s)
       volumes: # Volume binding
         - '.:/usr/src/app' 
       ports: 
-        - '3001:3001' # Port mapping
+        - '3000:3000' # Port mapping
       command: > 
         bash -c "npm install && node app.js"

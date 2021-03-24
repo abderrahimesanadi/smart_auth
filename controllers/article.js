@@ -71,14 +71,14 @@ router.post('/searchArticles', isLogged, (req, res) => {
     console.log(queryText);
 
     searchTagQuery = (queryText ? '&':'') + searchTagQuery;
-    console.log("###############queryText#########################");
+    console.log("###############searchTagQuery#########################");
     console.log(searchTagQuery);
 
     axios.get('http://localhost:8082/api/articles?page='+ paginationNumber + queryText + searchTagQuery).then(res_http => {
 
         const articles = res_http.data['hydra:member'];
-
-        let nextPage = '';
+        console.log("res_http.data");
+        let nextPage = 'end';
 
         if (res_http.data['hydra:view']['hydra:next']) {
             nextPage = parseInt(res_http.data['hydra:view']['hydra:next'].split('page=')[1]);
